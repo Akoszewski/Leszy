@@ -45,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(browserIntent);
     }
 
+    public void map(View view) {
+        Intent intent = new Intent(MainActivity.this, MapActivity.class);
+        startActivity(intent);
+    }
+
 
     public void exit1(View view) {
         finish();

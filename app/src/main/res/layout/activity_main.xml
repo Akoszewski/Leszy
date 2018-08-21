@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#1B6C08"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="25dp">
-
 
     <Button
         android:id="@+id/exit_button"
@@ -17,22 +17,6 @@
         android:strokeWidth="0.5"
         android:onClick="exit1"
         android:text="Wyjście"/>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="My name is Tobi!" />
 
     <Button
         android:id="@+id/map_button"
@@ -54,5 +38,33 @@
         android:text="Kalendarz"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="0dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/gotomap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="0.5"
+            android:text="Map"
+            android:onClick="map"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="My name is Tobi!" />
 
 </android.support.constraint.ConstraintLayout>
