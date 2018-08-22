@@ -21,18 +21,6 @@
         android:text="Wyjście"/>
 
     <Button
-        android:id="@+id/map_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:strokeColor="#FFFFFFFF"
-        android:background = "@drawable/rounded_button"
-        android:strokeWidth="0.5"
-        android:onClick="mapa1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="Mapa" />
-
-    <Button
         android:id="@+id/gotocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,17 +35,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
 
         <Button
             android:id="@+id/gotomap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:strokeColor="#FFFFFFFF"
-            android:background = "@drawable/rounded_button"
-            android:strokeWidth="0.5"
-            android:text="Map"
+            android:background="@drawable/rounded_button"
             android:onClick="map"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="0.5"
+            android:text="Mapa"
             app:layout_constraintRight_toRightOf="parent"
             tools:layout_editor_absoluteY="0dp" />
 

@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void mapa1(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.czaswlas.pl/index/?id=c81e728d9d4c2f636f067f89cc14862c"));
-        startActivity(browserIntent);
-    }
 
     public void map(View view) {
         Intent intent = new Intent(MainActivity.this, MapActivity.class);
