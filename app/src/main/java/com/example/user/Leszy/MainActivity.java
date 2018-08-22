@@ -13,22 +13,35 @@ public class MainActivity extends AppCompatActivity {
 
     private Button gotocal;
 
+    private Button gotonote;
+
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
+
+
         setContentView(R.layout.activity_main);
         gotocal=(Button) findViewById(R.id.gotocal);
 
         gotocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,CalendarAcitivity.class);
+                Intent intent=new Intent(MainActivity.this,CalendarActivity.class);
                 startActivity(intent);
 
             }
         });
-    }
+        gotonote=(Button) findViewById(R.id.gotonote);
 
+        gotonote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,NotepadActivity.class);
+                startActivity(intent);
+
+            }
+    });
+    }
 
     public void map(View view) {
         Intent intent = new Intent(MainActivity.this, MapActivity.class);

@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.user.Leszy.CalendarAcitivity" />
+        <activity android:name="com.example.user.Leszy.CalendarActivity" />
+        <activity android:name="com.example.user.Leszy.NotepadActivity" />
         <activity android:name="com.example.user.Leszy.MapActivity"></activity>
     </application>
 
