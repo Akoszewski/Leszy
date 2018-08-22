@@ -1,6 +1,7 @@
 package com.example.user.Leszy;
 
 import android.content.Context;
+import android.location.Location;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,17 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 public class MapActivity extends AppCompatActivity {
     MapView map = null;
+    private double latitude;
+    private double longitude;
+    private double altitude;
+    private double accuracy;
+    MapController mapController;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,12 +44,36 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void run() {
                 GeoPoint point = new GeoPoint((int) lat,(int) lon);
-                MapController mapController = (MapController) map.getController();
+                mapController = (MapController) map.getController();
                 mapController.setZoom(7);
                 mapController.setCenter(point);
             }
         }, 200);
 
+        MyLocationNewOverlay mylocation = new MyLocationNewOverlay(new GpsMyLocationProvider(getApplicationContext()), map);
+        mylocation.enableMyLocation();
+
+        map.getOverlays().add(mylocation);
+
+    }
+
+    public void onLocationChanged(Location location) {
+
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+        altitude = location.getAltitude();
+        accuracy = location.getAccuracy();
+
+        GeoPoint p = new GeoPoint((int)latitude,  (int)longitude);
+
+        mapController.animateTo(p);
+        mapController.setCenter(p);
+
+        MyLocationNewOverlay mylocation = new MyLocationNewOverlay(new GpsMyLocationProvider(getApplicationContext()), map);
+
+        mylocation.enableMyLocation();
+        //mylocation.enableFollowLocation();
+        map.getOverlays().add(mylocation);
     }
 
     public void onResume(){
