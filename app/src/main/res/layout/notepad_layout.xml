@@ -11,25 +11,29 @@
         android:id="@+id/butback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="534dp"
         android:background="@drawable/rounded_button"
         android:onClick="back2"
         android:strokeColor="#FFFFFFFF"
         android:strokeWidth="0.5"
         android:text="Powrót"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/EditText1"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
+        android:layout_height="match_parent"
         android:background="#fbf6e6"
         android:gravity="top"
         android:hint="Rozpocznij notatke..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
