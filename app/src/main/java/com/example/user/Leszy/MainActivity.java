@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button gotonote;
 
+
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
@@ -50,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void exit1(View view) {
-        finish();
-        System.exit(0);
+        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 
 }

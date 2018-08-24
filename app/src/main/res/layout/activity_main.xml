@@ -33,7 +33,7 @@
             android:onClick="exit1"
             android:strokeColor="#FFFFFFFF"
             android:strokeWidth="0.5"
-            android:text="Wyjście"
+            android:text="Wyloguj"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
