@@ -13,11 +13,11 @@ import android.widget.Toast;
 
 
 public class LoginActivity extends Activity  {
-    Button b1,b2;
+    Button b1;
     EditText ed1,ed2;
 
     TextView tx1;
-    int counter = 2;
+    int counter=2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class LoginActivity extends Activity  {
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
 
-        b2=(Button)findViewById(R.id.button2);
         tx1=(TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
@@ -53,11 +52,5 @@ public class LoginActivity extends Activity  {
             }
         });
 
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 }
