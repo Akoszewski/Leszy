@@ -7,20 +7,6 @@
     android:background="#0B354D"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/butback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="534dp"
-        android:background="@drawable/rounded_button"
-        android:onClick="back2"
-        android:strokeColor="#FFFFFFFF"
-        android:strokeWidth="0.5"
-        android:text="Powrót"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/EditText1"
