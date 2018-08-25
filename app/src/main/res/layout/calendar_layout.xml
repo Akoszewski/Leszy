@@ -4,26 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#1B6C08"
+    android:background="@drawable/background_forest"
     android:layout_height="match_parent">
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/rounded_button"
-        android:layout_marginBottom="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/butback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
-        android:strokeColor="#FFFFFFFF"
-        android:strokeWidth="0.5"
-        android:onClick="back1"
-        android:text="Powrót"/>
 </android.support.constraint.ConstraintLayout>

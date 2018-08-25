@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#1B6C08"
+    android:background="@drawable/background_forest"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="25dp"
     android:padding="14dp">
@@ -19,7 +19,6 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -42,8 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/rounded_button"
-            android:strokeColor="#FFFFFFFF"
-            android:strokeWidth="0.5"
             android:text="Kalendarz"
             app:layout_constraintRight_toRightOf="parent"
             tools:layout_editor_absoluteY="0dp" />
@@ -54,8 +51,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/rounded_button"
-            android:strokeColor="#FFFFFFFF"
-            android:strokeWidth="0.5"
             android:text="Notatnik"
             tools:layout_editor_absoluteX="140dp"
             tools:layout_editor_absoluteY="0dp" />
@@ -67,8 +62,6 @@
             android:layout_margin="20dp"
             android:background="@drawable/rounded_button"
             android:onClick="map"
-            android:strokeColor="#FFFFFFFF"
-            android:strokeWidth="0.5"
             android:text="Mapa"
             app:layout_constraintRight_toRightOf="parent"
             tools:layout_editor_absoluteY="0dp" />
@@ -77,11 +70,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="My name is Tobi!" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textColor="#FFFFFF"
+        android:gravity="bottom|center"
+        android:text="studia.elka.pw.edu.pl"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
 </android.support.constraint.ConstraintLayout>
