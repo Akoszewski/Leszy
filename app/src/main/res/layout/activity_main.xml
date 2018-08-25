@@ -25,15 +25,14 @@
         app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/exit_button"
+            android:id="@+id/sign_inout_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/rounded_button"
-            android:onClick="exit1"
+            android:onClick="signInOut"
             android:strokeColor="#FFFFFFFF"
             android:strokeWidth="0.5"
-            android:text="Wyloguj"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 

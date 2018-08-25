@@ -13,40 +13,42 @@ import android.widget.Toast;
 
 
 public class LoginActivity extends Activity  {
-    Button b1;
-    EditText ed1,ed2;
+    Button btnLogin;
+    EditText editLogin, editPassword;
 
-    TextView tx1;
-    int counter=2;
+    TextView textView;
+    int counter = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
-        b1=(Button)findViewById(R.id.button);
-        ed1=(EditText)findViewById(R.id.editText);
-        ed2=(EditText)findViewById(R.id.editText2);
+        btnLogin = (Button)findViewById(R.id.button);
+        editLogin = (EditText)findViewById(R.id.editText);
+        editPassword = (EditText)findViewById(R.id.editText2);
 
-        tx1=(TextView)findViewById(R.id.textView3);
-        tx1.setVisibility(View.GONE);
+        textView = (TextView)findViewById(R.id.textView3);
+        textView.setVisibility(View.GONE);
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View viev) {
-                if(ed1.getText().toString().equals("admin") &&
-                        ed2.getText().toString().equals("admin")) {
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                }else{
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
-
-                            tx1.setVisibility(View.VISIBLE);
-                    tx1.setBackgroundColor(Color.RED);
+                if (editLogin.getText().toString().equals("admin") &&
+                        editPassword.getText().toString().equals("admin")) {
+                    AppData.isUserSignedIn = true;
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("isUserSignedIn", AppData.isUserSignedIn);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                    textView.setVisibility(View.VISIBLE);
+                    textView.setBackgroundColor(Color.RED);
                     counter--;
-                    tx1.setText(Integer.toString(counter));
+                    textView.setText(Integer.toString(counter));
 
                     if (counter == 0) {
-                        b1.setEnabled(false);
+                        btnLogin.setEnabled(false);
                     }
                 }
             }
