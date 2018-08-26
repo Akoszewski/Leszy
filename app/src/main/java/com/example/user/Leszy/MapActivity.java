@@ -1,7 +1,6 @@
 package com.example.user.Leszy;
 
 import android.content.Context;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,19 +27,15 @@ public class MapActivity extends AppCompatActivity {
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
 
-        final double lat = 52.29377413882149 * 1000000;
-        final double lon = 19.401969817518 * 1000000;
+        final double lat = 52.29377413882149;
+        final double lon = 19.401969817518;
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                GeoPoint point = new GeoPoint((int) lat,(int) lon);
-                MapController mapController = (MapController) map.getController();
-                mapController.setZoom(7);
-                mapController.setCenter(point);
-            }
-        }, 200);
+        GeoPoint point = new GeoPoint(lat, lon);
+        MapController mapController = (MapController) map.getController();
+        mapController.setZoom(7);
+        mapController.setCenter(point);
 
+        Place place = new Place(map, "Pałac Kultury i Nauki", 52.2322, 21.0083);
     }
 
     public void onResume(){
