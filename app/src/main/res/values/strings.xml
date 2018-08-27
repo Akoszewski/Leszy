@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">My 1st  Application</string>
     <string name="title_activity_note_select">NoteSelect</string>
+    <string name="sign_in">Zaloguj</string>
+    <string name="sign_out">Wyloguj</string>
+    <string name="share_location">Udostępniaj lokalizację</string>
+    <string name="stop_sharing_location">Zatrzymaj udostępnianie lokalizacji</string>
 </resources>

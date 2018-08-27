@@ -37,9 +37,7 @@ public class LoginActivity extends Activity  {
                 if (editLogin.getText().toString().equals("admin") &&
                         editPassword.getText().toString().equals("admin")) {
                     AppData.isUserSignedIn = true;
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("isUserSignedIn", AppData.isUserSignedIn);
-                    startActivity(intent);
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
                     textView.setVisibility(View.VISIBLE);
