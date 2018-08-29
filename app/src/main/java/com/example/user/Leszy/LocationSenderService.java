@@ -16,6 +16,10 @@ import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
 public class LocationSenderService extends Service implements LocationListener {
     private static final String LOG_TAG = "LocationSenderService";
 
@@ -27,6 +31,9 @@ public class LocationSenderService extends Service implements LocationListener {
 
     private long minIntervalMiliseconds = 1000;
 
+    Socket socket = null;
+    DataOutputStream outStream = null;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -34,7 +41,23 @@ public class LocationSenderService extends Service implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        Log.i("onLocationChanged", location.toString());
+        try {
+            if (socket == null) {
+                socket = new Socket("192.168.1.6", 1234);
+                outStream = new DataOutputStream(socket.getOutputStream());
+            }
+            outStream.writeBytes(location.toString() + "\n");
+        } catch (IOException e) {
+            try {
+                if (socket != null) {
+                    socket.close();
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            socket = null;
+        }
+        Log.i(LOG_TAG, location.toString());
     }
 
     @Override
@@ -73,6 +96,15 @@ public class LocationSenderService extends Service implements LocationListener {
     @Override
     public void onDestroy() {
         try {
+            if (socket != null) {
+                socket.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        socket = null;
+
+        try {
             mLocationManager.removeUpdates(this);
         } catch (SecurityException e){
             e.printStackTrace();
@@ -87,6 +119,7 @@ public class LocationSenderService extends Service implements LocationListener {
         }
 
         mLocationHandlerThread = null;
+
         super.onDestroy();
         Log.i(LOG_TAG, "In onDestroy");
     }
