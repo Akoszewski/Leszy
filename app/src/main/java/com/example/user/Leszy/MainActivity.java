@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button gotocal;
     private Button gotonote;
+    private Button gotonotes;
     private Button btnSignInOut;
     private Button btnStartLocationService;
 
@@ -39,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        gotonote = (Button)findViewById(R.id.gotonote);
-        gotonote.setOnClickListener(new View.OnClickListener() {
+        gotonotes = (Button)findViewById(R.id.gotonotes);
+        gotonotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NotepadActivity.class);
+                Intent intent = new Intent(MainActivity.this, NoteSelect.class);
                 startActivity(intent);
             }
         });

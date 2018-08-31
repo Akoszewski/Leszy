@@ -2,12 +2,14 @@ package com.example.user.Leszy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -34,15 +36,32 @@ public class NotepadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notepad_layout);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Save("Note1.txt");
+                int i=1;
+                for (i=1;i<10;i++) {
+                    if (FileExists("Note" + i + ".txt")) {
+                        i++;
+                    } else
+                        Save("Note" + i + ".txt");
+                }
             }
         });
+
         EditText1 = (EditText) findViewById(R.id.EditText1);
         EditText1.setText(Open("Note1.txt"));
+
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(NotepadActivity.this, NoteSelect.class);
+                NotepadActivity.this.startActivity(myIntent);
+            }
+        });
     }
 
     public String Open(String fileName) {
@@ -88,4 +107,5 @@ public class NotepadActivity extends AppCompatActivity {
     public void back2(View view) {
         onBackPressed();
     }
+
 }

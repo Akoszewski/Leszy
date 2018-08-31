@@ -25,13 +25,16 @@
         <activity android:name=".NotepadActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MapActivity" />
-
         <service
             android:name=".LocationSenderService"
             android:enabled="true"
             android:exported="true">
-
         </service>
+        <activity
+            android:name=".NoteSelect"
+            android:label="@string/title_activity_note_select"></activity>
+        <activity android:name=".NotesAdapter" />
+        <activity android:name=".NotesBuilder" />
     </application>
 
 </manifest>

@@ -5,4 +5,5 @@
     <string name="sign_out">Wyloguj</string>
     <string name="share_location">Udostępniaj lokalizację</string>
     <string name="stop_sharing_location">Zatrzymaj udostępnianie lokalizacji</string>
+    <string name="action_settings">List Notes</string>
 </resources>
