@@ -49,6 +49,16 @@ public class NotepadActivity extends AppCompatActivity {
             }
         });
 
+        final FloatingActionButton fab4 = (FloatingActionButton) findViewById(R.id.fab4);
+        fab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteFile("Note" + editNote.getText() + ".txt");
+                Delete("Note" + editNote.getText() + ".txt");
+                fab3.setEnabled(true);
+            }
+        });
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +68,9 @@ public class NotepadActivity extends AppCompatActivity {
                 if(fab3.isEnabled())
                 {
                     for (i = 1; i < 10; i++) {
-                        if (FileExists("Note" + i + ".txt")) {
-                            i++;
-                        } else {
+                        if (FileExists("Note" + i + ".txt"))
+                        {}
+                            else {
                             Save("Note" + i + ".txt");
                             break;
                         }
@@ -121,6 +131,15 @@ public class NotepadActivity extends AppCompatActivity {
             Toast.makeText(this, "Notatka zapisana!", Toast.LENGTH_SHORT).show();
         } catch (Throwable t) {
             Toast.makeText(this, "Wyjatek: " + t.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void Delete(String fileName) {
+        try {
+            deleteFile(fileName);
+            Toast.makeText(this, "Notatka usunięta!", Toast.LENGTH_SHORT).show();
+        } catch (Throwable t) {
+            Toast.makeText(this, "Wyjątek: " + t.toString(), Toast.LENGTH_LONG).show();
         }
     }
 
