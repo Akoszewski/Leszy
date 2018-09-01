@@ -11,7 +11,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private Button gotocal;
-    private Button gotonote;
     private Button gotonotes;
     private Button btnSignInOut;
     private Button btnStartLocationService;

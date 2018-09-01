@@ -45,8 +45,11 @@ public class NotepadActivity extends AppCompatActivity {
                 for (i=1;i<10;i++) {
                     if (FileExists("Note" + i + ".txt")) {
                         i++;
-                    } else
+                    }
+                    else {
                         Save("Note" + i + ".txt");
+                        break;
+                    }
                 }
             }
         });
