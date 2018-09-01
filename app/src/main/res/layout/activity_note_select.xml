@@ -46,5 +46,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:id="@+id/notes"/>
 </android.support.constraint.ConstraintLayout>
