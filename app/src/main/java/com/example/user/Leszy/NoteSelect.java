@@ -45,6 +45,7 @@ public class NoteSelect extends AppCompatActivity {
 
         notesRecycler = (RecyclerView) findViewById(R.id.notes);
 
+
         nAdapter = new NotesAdapter(notesList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         notesRecycler.setLayoutManager(mLayoutManager);
@@ -60,13 +61,15 @@ public class NoteSelect extends AppCompatActivity {
         directory = getFilesDir();
         File[] files = directory.listFiles();
         String theFile;
-        for (int i = 1; i <= files.length; i++) {
+        //files.length
+        for (int i = 1; i <= 10; i++) {
             theFile = "Note" + i + ".txt";
             NotesBuilder note = new NotesBuilder(theFile, Open(theFile));
             notesList.add(note);
         }
 
     }
+
 
     public String Open(String fileName) {
         String content = "";

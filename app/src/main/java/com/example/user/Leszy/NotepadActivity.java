@@ -28,6 +28,7 @@ import java.io.OutputStreamWriter;
 public class NotepadActivity extends AppCompatActivity {
 
     EditText EditText1;
+    EditText editNote;
 
     private static final String TAG="NotepadActivity";
 
@@ -36,26 +37,42 @@ public class NotepadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notepad_layout);
 
+        EditText1 = (EditText) findViewById(R.id.EditText1);
+        editNote = (EditText) findViewById(R.id.editText);
+
+        final FloatingActionButton fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText1.setText(Open("Note" + editNote.getText() + ".txt"));
+                fab3.setEnabled(false);
+            }
+        });
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int i=1;
-                for (i=1;i<10;i++) {
-                    if (FileExists("Note" + i + ".txt")) {
-                        i++;
-                    }
-                    else {
-                        Save("Note" + i + ".txt");
-                        break;
+                if(fab3.isEnabled())
+                {
+                    for (i = 1; i < 10; i++) {
+                        if (FileExists("Note" + i + ".txt")) {
+                            i++;
+                        } else {
+                            Save("Note" + i + ".txt");
+                            break;
+                        }
                     }
                 }
+                else {
+                    Save("Note" + editNote.getText() + ".txt");
+                    fab3.setEnabled(true);
+                    }
             }
         });
 
-        EditText1 = (EditText) findViewById(R.id.EditText1);
-        EditText1.setText(Open("Note1.txt"));
 
         FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
         fab2.setOnClickListener(new View.OnClickListener() {

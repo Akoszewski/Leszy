@@ -1,12 +1,21 @@
 package com.example.user.Leszy;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
+
 
 public class NotesAdapter extends RecyclerView.Adapter <
         NotesAdapter.MyViewHolder > {
@@ -15,14 +24,24 @@ private List <
         NotesBuilder >
         notesList;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     public TextView title, content;
+
+
 
     public MyViewHolder(View view) {
         super(view);
+        itemView.setOnClickListener(this);
         title = (TextView) view.findViewById(R.id.title);
         content = (TextView) view.findViewById(R.id.content);
+    }
 
+    @Override
+    public void onClick(View view) {
+        for (int i = 0; i < 10; i++) {
+                Intent intent = new Intent(view.getContext(), NotepadActivity.class);
+                view.getContext().startActivity(intent);
+        }
     }
 }
 
