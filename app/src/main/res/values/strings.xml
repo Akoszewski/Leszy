@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">My 1st  Application</string>
+    <string name="app_name">Leszy</string>
     <string name="title_activity_note_select">NoteSelect</string>
     <string name="sign_in">Zaloguj</string>
     <string name="sign_out">Wyloguj</string>
     <string name="share_location">Udostępniaj lokalizację</string>
     <string name="stop_sharing_location">Zatrzymaj udostępnianie lokalizacji</string>
-    <string name="action_settings">List Notes</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Jan Jasionek</string>
+    <string name="nav_header_subtitle">elkatosyf@maciej.kom</string>
 </resources>
