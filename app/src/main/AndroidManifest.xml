@@ -31,8 +31,7 @@
             android:exported="true">
         </service>
         <activity
-            android:name=".NoteSelect"
-            android:label="@string/title_activity_note_select"></activity>
+            android:name=".NoteSelect" />
         <activity android:name=".NotesAdapter" />
         <activity android:name=".NotesBuilder" />
     </application>

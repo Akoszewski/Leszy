@@ -2,22 +2,12 @@ package com.example.user.Leszy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -121,7 +111,6 @@ public class NotepadActivity extends AppCompatActivity {
         return file.exists();
     }
 
-
     public void Save(String fileName) {
         try {
             OutputStreamWriter out =
@@ -142,9 +131,4 @@ public class NotepadActivity extends AppCompatActivity {
             Toast.makeText(this, "Wyjątek: " + t.toString(), Toast.LENGTH_LONG).show();
         }
     }
-
-    public void back2(View view) {
-        onBackPressed();
-    }
-
 }

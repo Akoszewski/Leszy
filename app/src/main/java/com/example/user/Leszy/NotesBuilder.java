@@ -2,10 +2,9 @@ package com.example.user.Leszy;
 
 public class NotesBuilder {
 
-    private String title, content;
+    public NotesBuilder() {}
 
-    public NotesBuilder() {
-    }
+    private String title, content;
 
     public NotesBuilder(String title, String content) {
         this.title = title;
