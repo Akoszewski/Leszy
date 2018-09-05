@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#1B6C08"
+    android:background="@drawable/background_forest"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,8 +29,8 @@
             android:layout_height="42dp"
             android:focusable="true"
             android:hint="Wprowadź login"
-            android:textColorHighlight="#ff7eff15"
-            android:textColorHint="#ffff25e6"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#1D5C0A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="81dp" />
@@ -41,8 +41,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Wprowadź hasło"
+            android:textColor="#FFFFFF"
             android:inputType="textPassword"
-            android:textColorHint="#ffff299f"
+            android:textColorHint="#1D5C0A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +55,7 @@
             android:layout_height="wrap_content"
             android:text="Pozostałe Próby:"
             android:textSize="25dp"
+            android:textColor="#FFFFFF"
             tools:layout_editor_absoluteX="81dp"
             tools:layout_editor_absoluteY="407dp" />
 
@@ -61,7 +63,8 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="5"
+            android:textColor="#FFFFFF"
             android:textSize="25dp"
             tools:layout_editor_absoluteX="241dp"
             tools:layout_editor_absoluteY="407dp" />
@@ -75,8 +78,5 @@
             android:text="Zaloguj" />
 
     </LinearLayout>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

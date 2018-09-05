@@ -6,6 +6,7 @@ import org.osmdroid.views.overlay.Marker;
 
 public class Place {
     private Marker marker;
+
     public Place(MapView map, String title, double latitude, double longitude) {
         marker = new Marker(map);
         marker.setTextLabelBackgroundColor(0xfbf6e6);

@@ -83,7 +83,7 @@
         android:layout_height="fill_parent"
         android:textColor="#FFFFFF"
         android:gravity="bottom|center"
-        android:text="studia.elka.pw.edu.pl"
+        android:text="© 2018 EiTItronic Arts Inc."
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="15sp"
         android:textStyle="bold" />
