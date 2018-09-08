@@ -1,6 +1,7 @@
 package com.example.user.Leszy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -170,6 +171,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_map:
                 Intent e = new Intent(MainActivity.this, MapActivity.class);
                 startActivity(e);
+                break;
+            case R.id.nav_twitter:
+                Intent f = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/nasze_lasy"));
+                startActivity(f);
                 break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);

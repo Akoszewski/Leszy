@@ -25,6 +25,10 @@
             android:icon="@drawable/icon_map"
             android:title="Mapa" />
         <item
+        android:id="@+id/nav_twitter"
+        android:icon="@drawable/twitter_icon"
+        android:title="Twitter" />
+        <item
             android:id="@+id/nav_location"
             android:icon="@drawable/icon_location"
             android:title="@string/share_location" />
