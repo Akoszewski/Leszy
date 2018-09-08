@@ -176,6 +176,10 @@ public class MainActivity extends AppCompatActivity
                 Intent f = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/nasze_lasy"));
                 startActivity(f);
                 break;
+            case R.id.nav_help:
+              //  Intent g = new Intent(MainActivity.this, HelpActivity.class);
+              //  startActivity(g);
+                break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
                 Menu menu = navigationView.getMenu();

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -156,6 +157,14 @@ public class MapActivity extends AppCompatActivity
                 startActivity(d);
                 break;
             case R.id.nav_map:
+                break;
+            case R.id.nav_twitter:
+                Intent f = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/nasze_lasy"));
+                startActivity(f);
+                break;
+            case R.id.nav_help:
+                //  Intent g = new Intent(MainActivity.this, HelpActivity.class);
+                //  startActivity(g);
                 break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
