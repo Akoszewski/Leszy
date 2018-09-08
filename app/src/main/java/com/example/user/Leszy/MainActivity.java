@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(e);
                 break;
             case R.id.nav_twitter:
-                Intent f = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/nasze_lasy"));
+                Intent f = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/ktrebski"));
                 startActivity(f);
                 break;
             case R.id.nav_help:
