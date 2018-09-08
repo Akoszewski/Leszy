@@ -114,6 +114,18 @@ public class CalendarActivity extends AppCompatActivity
                 //  Intent g = new Intent(MainActivity.this, HelpActivity.class);
                 //  startActivity(g);
                 break;
+            case R.id.nav_firstaid:
+                //  Intent h = new Intent(MainActivity.this, FirstAidActivity.class);
+                //  startActivity(h);
+                break;
+            case R.id.nav_warn:
+                //  Intent i = new Intent(MainActivity.this, WarnActivity.class);
+                //  startActivity(i);
+                break;
+            case R.id.nav_tips:
+                //  Intent j = new Intent(MainActivity.this, InfoActivity.class);
+                //  startActivity(j);
+                break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
                 Menu menu = navigationView.getMenu();

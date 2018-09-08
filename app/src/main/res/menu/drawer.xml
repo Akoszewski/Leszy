@@ -25,13 +25,25 @@
             android:icon="@drawable/icon_map"
             android:title="Mapa" />
         <item
-        android:id="@+id/nav_twitter"
-        android:icon="@drawable/twitter_icon"
-        android:title="Twitter" />
+            android:id="@+id/nav_twitter"
+            android:icon="@drawable/twitter_icon"
+            android:title="Twitter" />
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/sos_icon"
-            android:title="Pomoc" />
+            android:title="Kontakt z leśnikami" />
+        <item
+            android:id="@+id/nav_firstaid"
+            android:icon="@drawable/firstaid_icon"
+            android:title="Pierwsza Pomoc" />
+        <item
+            android:id="@+id/nav_tips"
+            android:icon="@drawable/info_icon"
+            android:title="Porady" />
+        <item
+            android:id="@+id/nav_warn"
+            android:icon="@drawable/warn_icon"
+            android:title="Ostrzeżenia" />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/icon_location"
