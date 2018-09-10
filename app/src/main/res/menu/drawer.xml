@@ -45,6 +45,10 @@
             android:icon="@drawable/warn_icon"
             android:title="Ostrzeżenia" />
         <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings_icon"
+            android:title="Ustawienia" />
+        <item
             android:id="@+id/nav_location"
             android:icon="@drawable/icon_location"
             android:title="@string/share_location" />

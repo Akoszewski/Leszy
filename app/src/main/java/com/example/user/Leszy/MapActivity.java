@@ -178,6 +178,10 @@ public class MapActivity extends AppCompatActivity
                 //  Intent j = new Intent(MainActivity.this, InfoActivity.class);
                 //  startActivity(j);
                 break;
+            case R.id.nav_settings:
+                Intent k = new Intent(MapActivity.this, SettingsActivity.class);
+                startActivity(k);
+                break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
                 Menu menu = navigationView.getMenu();

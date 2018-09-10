@@ -25,6 +25,7 @@
         <activity android:name=".NotepadActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MapActivity" />
+        <activity android:name=".SettingsActivity" />
         <service
             android:name=".LocationSenderService"
             android:enabled="true"

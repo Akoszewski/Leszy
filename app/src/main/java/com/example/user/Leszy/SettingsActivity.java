@@ -1,66 +1,38 @@
 package com.example.user.Leszy;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button btnLogin;
-    EditText editLogin, editPassword;
 
-    TextView textView;
-    int counter = 5;
+public class SettingsActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    Button changelog;
+    Button changepass;
+    Button changemail;
+
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
-        btnLogin = (Button)findViewById(R.id.button);
-        editLogin = (EditText)findViewById(R.id.editText);
-        editPassword = (EditText)findViewById(R.id.editText2);
+        setContentView(R.layout.settings_layout);
 
-        textView = (TextView)findViewById(R.id.textView3);
-        textView.setVisibility(View.GONE);
+        changelog = (Button) findViewById(R.id.butt);
+        changepass = (Button) findViewById(R.id.butt2);
+        changemail = (Button) findViewById(R.id.butt3);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (editLogin.getText().toString().equals("admin") &&
-                        editPassword.getText().toString().equals("admin")) {
-                    AppData.isUserSignedIn = true;
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                } else {
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
-                    textView.setVisibility(View.VISIBLE);
-                    textView.setBackgroundColor(Color.RED);
-                    counter--;
-                    textView.setText(Integer.toString(counter));
 
-                    if (counter == 0) {
-                        btnLogin.setEnabled(false);
-                        textView.setText("Konto zablokowane!");
-                    }
-                }
-            }
-        });
 //Drawer
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -74,10 +46,9 @@ public class LoginActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 //
-
     }
 
-//Drawer methods
+    //Drawer methods
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -113,21 +84,23 @@ public class LoginActivity extends AppCompatActivity
         switch (id){
 
             case R.id.nav_home:
-                Intent a= new Intent(LoginActivity.this, MainActivity.class);
+                Intent a = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(a);
                 break;
             case R.id.nav_login:
+                Intent b = new Intent(SettingsActivity.this, LoginActivity.class);
+                startActivity(b);
                 break;
             case R.id.nav_calendar:
-                Intent c= new Intent(LoginActivity.this, CalendarActivity.class);
+                Intent c = new Intent(SettingsActivity.this, CalendarActivity.class);
                 startActivity(c);
                 break;
             case R.id.nav_notes:
-                Intent d= new Intent(LoginActivity.this, NoteSelect.class);
+                Intent d = new Intent(SettingsActivity.this, NoteSelect.class);
                 startActivity(d);
                 break;
             case R.id.nav_map:
-                Intent e= new Intent(LoginActivity.this, MapActivity.class);
+                Intent e = new Intent(SettingsActivity.this, MapActivity.class);
                 startActivity(e);
                 break;
             case R.id.nav_twitter:
@@ -151,8 +124,6 @@ public class LoginActivity extends AppCompatActivity
                 //  startActivity(j);
                 break;
             case R.id.nav_settings:
-                Intent k = new Intent(LoginActivity.this, SettingsActivity.class);
-                startActivity(k);
                 break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -162,12 +133,12 @@ public class LoginActivity extends AppCompatActivity
                 if (!AppData.isLocationSharingOn) {
                     nav_location.setTitle(R.string.stop_sharing_location);
                     AppData.isLocationSharingOn = true;
-                    Intent startIntent = new Intent(LoginActivity.this, LocationSenderService.class);
+                    Intent startIntent = new Intent(SettingsActivity.this, LocationSenderService.class);
                     startService(startIntent);
                 } else {
                     nav_location.setTitle(R.string.share_location);
                     AppData.isLocationSharingOn = false;
-                    Intent stopIntent = new Intent(LoginActivity.this, LocationSenderService.class);
+                    Intent stopIntent = new Intent(SettingsActivity.this, LocationSenderService.class);
                     stopService(stopIntent);
                 }
                 navigationView.setNavigationItemSelectedListener(this);
