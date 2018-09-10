@@ -13,12 +13,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MainActivity";
+
+    private WebView mywebView;
 
     private Button btnSignInOut;
     private Button btnStartLocationService;
@@ -29,6 +34,13 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_main);
+
+        mywebView = (WebView)findViewById(R.id.webView);
+        WebSettings webSettings = mywebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        mywebView.loadUrl("http://www.lasy.gov.pl/pl/informacje/aktualnosci");
+        mywebView.setWebViewClient(new WebViewClient());
+
 
         btnSignInOut = findViewById(R.id.sign_inout_button);
         if (!AppData.isUserSignedIn) {
@@ -122,6 +134,11 @@ public class MainActivity extends AppCompatActivity
 //Drawer methods
     @Override
     public void onBackPressed() {
+        if (mywebView.canGoBack()) {
+            mywebView.goBack();
+        } else  {
+            super.onBackPressed();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -191,10 +208,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_tips:
                 //  Intent j = new Intent(MainActivity.this, InfoActivity.class);
                 //  startActivity(j);
-                break;
-            case R.id.nav_settings:
-                Intent k = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(k);
                 break;
             case R.id.nav_location:
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
