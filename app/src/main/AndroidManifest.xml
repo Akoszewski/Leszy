@@ -33,7 +33,7 @@
             android:exported="true">
         </service>
         <activity
-            android:name=".NoteSelect" />
+            android:name=".NoteSelectActivity" />
         <activity android:name=".NotesAdapter" />
         <activity android:name=".NotesBuilder" />
     </application>

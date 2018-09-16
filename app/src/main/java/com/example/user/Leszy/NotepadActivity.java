@@ -78,7 +78,7 @@ public class NotepadActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(NotepadActivity.this, NoteSelect.class);
+                Intent myIntent = new Intent(NotepadActivity.this, NoteSelectActivity.class);
                 NotepadActivity.this.startActivity(myIntent);
             }
         });

@@ -2,61 +2,20 @@ package com.example.user.Leszy;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+import android.support.annotation.LayoutRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+public class SideMenuActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener  {
 
-public class NoteSelect extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
-    private List <NotesBuilder>
-    notesList = new ArrayList <> ();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes);
-
-        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab1);
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(NoteSelect.this, NotepadActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        RecyclerView notesRecycler = (RecyclerView) findViewById(R.id.notes);
-
-        NotesAdapter nAdapter = new NotesAdapter(notesList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        notesRecycler.setLayoutManager(mLayoutManager);
-        notesRecycler.setItemAnimator(new DefaultItemAnimator());
-        notesRecycler.setAdapter(nAdapter);
-
-        prepareNotes();
-
-//Drawer
+    protected void onCreateDrawer() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -68,46 +27,14 @@ public class NoteSelect extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-//
     }
 
-    private void prepareNotes() {
-        File directory;
-        directory = getFilesDir();
-        File[] files = directory.listFiles();
-        String theFile;
-        //files.length
-        for (int i = 1; i <= 10; i++) {
-            theFile = "Note" + i + ".txt";
-            NotesBuilder note = new NotesBuilder(theFile, Open(theFile));
-            notesList.add(note);
-        }
-
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        onCreateDrawer();
     }
 
-    public String Open(String fileName) {
-        String content = "";
-        try {
-            InputStream in = openFileInput(fileName);
-            if ( in != null) {
-                InputStreamReader tmp = new InputStreamReader( in );
-                BufferedReader reader = new BufferedReader(tmp);
-                String str;
-                StringBuilder buf = new StringBuilder();
-                while ((str = reader.readLine()) != null) {
-                    buf.append(str + "\n");
-                } in .close();
-
-                content = buf.toString();
-            }
-        } catch (java.io.FileNotFoundException e) {} catch (Throwable t) {
-            Toast.makeText(this, "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
-        }
-
-        return content;
-    }
-
-//Drawer methods
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -138,26 +65,32 @@ public class NoteSelect extends AppCompatActivity
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
-
             case R.id.nav_home:
-                Intent a = new Intent(NoteSelect.this, MainActivity.class);
+                if (this instanceof MainActivity) { break; }
+                Intent a = new Intent(this, MainActivity.class);
                 startActivity(a);
                 break;
             case R.id.nav_login:
-                Intent b = new Intent(NoteSelect.this, LoginActivity.class);
+                if (this instanceof LoginActivity) { break; }
+                Intent b = new Intent(this, LoginActivity.class);
                 startActivity(b);
                 break;
             case R.id.nav_calendar:
-                Intent c = new Intent(NoteSelect.this, CalendarActivity.class);
+                if (this instanceof CalendarActivity) { break; }
+                Intent c = new Intent(this, CalendarActivity.class);
                 startActivity(c);
                 break;
             case R.id.nav_notes:
+                if (this instanceof NoteSelectActivity) { break; }
+                Intent d = new Intent(this, NoteSelectActivity.class);
+                startActivity(d);
                 break;
             case R.id.nav_map:
-                Intent e = new Intent(NoteSelect.this, MapActivity.class);
+                if (this instanceof MapActivity) { break; }
+                Intent e = new Intent(this, MapActivity.class);
                 startActivity(e);
                 break;
             case R.id.nav_twitter:
@@ -165,23 +98,28 @@ public class NoteSelect extends AppCompatActivity
                 startActivity(f);
                 break;
             case R.id.nav_help:
-                //  Intent g = new Intent(MainActivity.this, HelpActivity.class);
+                //if (this instanceof HelpActivity) { break; }
+                //  Intent g = new Intent(this, HelpActivity.class);
                 //  startActivity(g);
                 break;
             case R.id.nav_firstaid:
-                //  Intent h = new Intent(MainActivity.this, FirstAidActivity.class);
+                //if (this instanceof FirstAidActivity) { break; }
+                //  Intent h = new Intent(this, FirstAidActivity.class);
                 //  startActivity(h);
                 break;
             case R.id.nav_warn:
-                //  Intent i = new Intent(MainActivity.this, WarnActivity.class);
+                //if (this instanceof WarnActivity) { break; }
+                //  Intent i = new Intent(this, WarnActivity.class);
                 //  startActivity(i);
                 break;
             case R.id.nav_tips:
-                //  Intent j = new Intent(MainActivity.this, InfoActivity.class);
+                //if (this instanceof InfoActivity) { break; }
+                //  Intent j = new Intent(this, InfoActivity.class);
                 //  startActivity(j);
                 break;
             case R.id.nav_settings:
-                Intent k = new Intent(NoteSelect.this, SettingsActivity.class);
+                if (this instanceof SettingsActivity) { break; }
+                Intent k = new Intent(this, SettingsActivity.class);
                 startActivity(k);
                 break;
             case R.id.nav_location:
@@ -192,12 +130,12 @@ public class NoteSelect extends AppCompatActivity
                 if (!AppData.isLocationSharingOn) {
                     nav_location.setTitle(R.string.stop_sharing_location);
                     AppData.isLocationSharingOn = true;
-                    Intent startIntent = new Intent(NoteSelect.this, LocationSenderService.class);
+                    Intent startIntent = new Intent(this, LocationSenderService.class);
                     startService(startIntent);
                 } else {
                     nav_location.setTitle(R.string.share_location);
                     AppData.isLocationSharingOn = false;
-                    Intent stopIntent = new Intent(NoteSelect.this, LocationSenderService.class);
+                    Intent stopIntent = new Intent(this, LocationSenderService.class);
                     stopService(stopIntent);
                 }
                 navigationView.setNavigationItemSelectedListener(this);
